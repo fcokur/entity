@@ -79,5 +79,17 @@ namespace Entity
 
             comboBox1.SelectedValue = sehirId;
         }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+          
+            Personeller p = db.Personeller.Find(id);
+            p.Ad = textBox1.Text;
+            p.Soyad = textBox2.Text;
+            p.DogumYeriId = ((Sehirler)comboBox1.SelectedItem).Id;
+
+            db.SaveChanges();
+            GridViewDoldur();
+        }
     }
 }
